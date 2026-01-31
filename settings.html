@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>UniConnect – Ayarlar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/holiday.css">
+  <link rel="icon" type="image/png" href="img/uniConnect.png">
+</head>
+<body class="theme-light" data-page="settings">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo" data-logo>
+      <img src="img/uniConnect.png" alt="Logo">
+      <span>UniConnect</span>
+    </div>
+
+    <nav class="top-nav">
+      <a class="nav-link" href="dashboard.html">Ders Programım</a>
+      <a class="nav-link" href="schedule.html">Programı Düzenle</a>
+      <a class="nav-link" href="friends.html">Arkadaşlar</a>
+      <a class="nav-link" href="shared.html">Ortak Boş Saat</a>
+      <a class="nav-link" href="profile.html">Profil</a>
+      <a class="nav-link" href="settings.html">Ayarlar</a>
+    </nav>
+
+    <div class="userbox">
+      <span id="currentUserEmail" class="user-email muted small"></span>
+      <button id="btnLogout" class="btn-small" type="button">Çıkış</button>
+    </div>
+  </div>
+</header>
+
+<main class="container layout">
+  <aside class="sidebar">
+    <div class="card">
+      <div class="side-title">Menü</div>
+      <div class="side-nav">
+        <a class="side-link" href="settings.html">Ayarlar</a>
+        <a class="side-link" href="profile.html">Profil</a>
+        <a class="side-link" href="help.html">Yardım</a>
+        <a class="side-link" href="faq.html">SSS</a>
+      </div>
+    </div>
+  </aside>
+
+  <section>
+    <div class="card">
+      <h1>Ayarlar</h1>
+      <p class="muted">Tema ve yılbaşı efekti dahil ayarları buradan yönetebilirsin.</p>
+
+      <form id="settingsForm" style="margin-top:12px;display:grid;gap:10px">
+        <div class="form-row">
+          <div>
+            <label for="settingsName">Görünen İsim</label>
+            <input id="settingsName" type="text">
+          </div>
+          <div>
+            <label for="settingsDepartment">Bölüm</label>
+            <input id="settingsDepartment" type="text">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="settingsLocation">Konum</label>
+            <input id="settingsLocation" type="text">
+          </div>
+          <div>
+            <label for="settingsTheme">Tema</label>
+            <select id="settingsTheme">
+              <option value="light">Açık Tema</option>
+              <option value="dark">Koyu Tema</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="settingsBio">Kısa Biyografi</label>
+          <textarea id="settingsBio" rows="3"></textarea>
+        </div>
+
+        <div class="card" style="box-shadow:none">
+          <h3>Kar Efekti</h3>
+          <label style="display:flex;gap:10px;align-items:center">
+            <input id="holidayToggle" type="checkbox" style="width:auto">
+            <span>Kar yağışı efektini aç</span>
+          </label>
+          <p class="muted small" style="margin:8px 0 0">
+            Bu efekt tasarımı güçlendirmek için eklendi.
+          </p>
+        </div>
+
+        <button class="btn-primary" type="submit">Kaydet</button>
+      </form>
+    </div>
+  </section>
+
+  <aside class="rightbar">
+    <div class="card">
+      <h3>İpucu</h3>
+      <p class="muted small">Koyu temayı burada aç/kapat yapabilirsin.</p>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© 2025 UniConnect</span>
+    <span><a href="contact.html">İletişim</a> · <a href="media.html">Medya</a> · <a href="about.html">Hakkında</a></span>
+  </div>
+</footer>
+
+<div id="holidayLayer" class="holiday-layer hidden" aria-hidden="true"></div>
+<script src="js/app.js"></script>
+<script src="js/holiday.js"></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>UniConnect – Admin Paneli</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="img/uniConnect.png">
+</head>
+<body class="theme-light" data-page="admin">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="dashboard.html">
+      <img src="img/uniConnect.png" alt="Logo">
+      <span>UniConnect</span>
+    </a>
+
+    <nav class="top-nav">
+      <a class="nav-link" href="dashboard.html">Ders Programım</a>
+      <a class="nav-link" href="schedule.html">Programı Düzenle</a>
+      <a class="nav-link" href="friends.html">Arkadaşlar</a>
+      <a class="nav-link" href="shared.html">Ortak Boş Saat</a>
+      <a class="nav-link" href="about.html">Hakkında</a>
+      <a class="nav-link" href="contact.html">İletişim</a>
+      <a class="nav-link" href="admin.html">Admin Paneli</a>
+    </nav>
+
+    <div class="userbox">
+      <span id="currentUserEmail" class="user-email muted small"></span>
+      <button id="btnLogout" class="btn-small" type="button">Çıkış</button>
+    </div>
+  </div>
+</header>
+
+<main class="container layout">
+  <!-- SOL MENÜ -->
+  <aside class="sidebar">
+    <div class="card">
+      <div class="side-title">Menü</div>
+      <div class="side-nav">
+        <a class="side-link" href="dashboard.html">Ana Sayfa</a>
+        <a class="side-link" href="schedule.html">Programı Düzenle</a>
+        <a class="side-link" href="profile.html">Profil</a>
+        <a class="side-link" href="friends.html">Arkadaşlar</a>
+        <a class="side-link" href="shared.html">Ortak Boş Saat</a>
+        <a class="side-link" href="resources.html">Dış Linkler</a>
+        <a class="side-link" href="admin.html">Admin Paneli</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ORTA ADMIN PANEL -->
+  <section>
+    <div class="card">
+      <h1>Admin Paneli</h1>
+      <p class="muted">
+        Buradan siteyi yönetebilir, kullanıcıları görebilir, ders ekleyebilir ve sistem
+        ayarlarını değiştirebilirsin. Bu panel sadece admin rolündeki kullanıcılar için anlamlıdır
+        (demo mantık: <strong>demo@mail.baskent.edu.tr</strong>).
+      </p>
+    </div>
+
+    <!-- NAV TABS -->
+    <div class="card">
+      <nav class="admin-nav" style="display:flex;flex-wrap:wrap;gap:8px">
+        <button type="button" class="admin-nav-link active" data-admin-target="dashboard">Özet</button>
+        <button type="button" class="admin-nav-link" data-admin-target="users">Kullanıcılar</button>
+        <button type="button" class="admin-nav-link" data-admin-target="friends">Arkadaş İstekleri</button>
+        <button type="button" class="admin-nav-link" data-admin-target="schedules">Programlar</button>
+        <button type="button" class="admin-nav-link" data-admin-target="courses">Dersler</button>
+        <button type="button" class="admin-nav-link" data-admin-target="settings">Ayarlar</button>
+        <button type="button" class="admin-nav-link" data-admin-target="logs">Loglar</button>
+      </nav>
+    </div>
+
+    <!-- DASHBOARD (ÖZET) -->
+    <section class="admin-section" data-admin-section="dashboard">
+      <div class="card">
+        <h2>Genel İstatistikler</h2>
+        <div class="admin-stat-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:10px">
+          <div class="stat-box">
+            <div class="muted small">Toplam Kullanıcı</div>
+            <div class="stat-value" id="adminTotalUsers">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="muted small">Bugün Aktif</div>
+            <div class="stat-value" id="adminActiveToday">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="muted small">Admin Sayısı</div>
+            <div class="stat-value" id="adminTotalAdmins">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="muted small">Log Kaydı</div>
+            <div class="stat-value" id="adminLogCount">0</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Kısa Not</h3>
+        <p class="muted small">
+          İstatistikler demo veriler üzerinden gösterilmektedir. Gerçek projede bu alanlar veritabanı
+          ile doldurulabilir.
+        </p>
+      </div>
+    </section>
+
+    <!-- KULLANICI YÖNETİMİ -->
+    <section class="admin-section hidden" data-admin-section="users">
+      <div class="card">
+        <h2>Kullanıcı Yönetimi</h2>
+        <p class="muted small">
+          Rol atama, filtreleme ve (demo) kullanıcı silme işlemleri.
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;align-items:flex-end">
+          <div style="flex:1 1 160px">
+            <label for="adminUserSearch">Ara (isim veya e-posta)</label>
+            <input id="adminUserSearch" type="text" placeholder="Örn: ayse">
+          </div>
+          <div style="flex:0 0 160px">
+            <label for="adminRoleFilter">Rol</label>
+            <select id="adminRoleFilter">
+              <option value="">Tümü</option>
+              <option value="ogrenci">Öğrenci</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;overflow:auto">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>İsim</th>
+                <th>E-posta</th>
+                <th>Rol</th>
+                <th>İşlem</th>
+              </tr>
+            </thead>
+            <tbody id="adminUserTableBody">
+              <!-- js/app.js dolduracak -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARKADAŞ İSTEKLERİ -->
+    <section class="admin-section hidden" data-admin-section="friends">
+      <div class="card">
+        <h2>Arkadaşlık İstekleri</h2>
+        <p class="muted small">
+          Kullanıcılar arası arkadaşlık isteklerini burada görebilirsin (demo veri).
+        </p>
+        <div id="adminFriendRequests" style="margin-top:10px">
+          <!-- js/app.js dolduracak -->
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMLAR -->
+    <section class="admin-section hidden" data-admin-section="schedules">
+      <div class="card">
+        <h2>Program Yönetimi</h2>
+        <p class="muted small">
+          Kullanıcıların ders programlarını görüntüleme / resetleme işlemleri (demo).
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;align-items:flex-end">
+          <div style="flex:1 1 220px">
+            <label for="adminScheduleUserSelect">Kullanıcı Seç</label>
+            <select id="adminScheduleUserSelect"></select>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button type="button" id="btnAdminViewSchedule" class="btn-small btn-primary">Programı Gör</button>
+            <button type="button" id="btnAdminResetSchedule" class="btn-small btn-outline">Programı Sıfırla (demo)</button>
+          </div>
+        </div>
+
+        <div id="adminSchedulePreview" class="muted small" style="margin-top:12px">
+          Henüz bir kullanıcı seçilmedi.
+        </div>
+      </div>
+    </section>
+
+    <!-- DERSLER (YENİ: admin ekler, öğrenci seçer) -->
+    <section class="admin-section hidden" data-admin-section="courses">
+      <div class="card">
+        <h2>Ders Yönetimi</h2>
+        <p class="muted small">
+          Buradan ders ekleyebilir / silebilirsin. Öğrenciler <strong>Programı Düzenle</strong> sayfasında
+          hücreye tıkladıklarında sadece buradaki dersleri görecek.
+        </p>
+
+        <form id="adminCourseForm" class="admin-course-form"
+              style="margin-top:10px;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));align-items:flex-end">
+          <div>
+            <label for="adminCourseCode">Ders Kodu</label>
+            <input id="adminCourseCode" type="text" required placeholder="Örn: TBY301">
+          </div>
+          <div>
+            <label for="adminCourseName">Ders Adı</label>
+            <input id="adminCourseName" type="text" required placeholder="Örn: Web Teknolojileri">
+          </div>
+          <div>
+            <label for="adminCourseDept">Bölüm / Açıklama</label>
+            <input id="adminCourseDept" type="text" placeholder="Örn: Bilgisayar Mühendisliği">
+          </div>
+          <div>
+            <button type="submit" class="btn-primary btn-small" style="margin-top:4px;width:100%">
+              Ders Ekle
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" style="margin-top:12px">
+        <h3>Kayıtlı Dersler</h3>
+        <div id="adminCourseList" style="margin-top:8px;display:flex;flex-direction:column;gap:6px">
+          <!-- js/app.js dolduracak -->
+        </div>
+      </div>
+    </section>
+
+    <!-- AYARLAR -->
+    <section class="admin-section hidden" data-admin-section="settings">
+      <div class="card">
+        <h2>Sistem Ayarları</h2>
+        <p class="muted small">
+          Site durumu, minimum şifre uzunluğu, üst banner mesajı ve varsayılan kar efekti tercihleri.
+        </p>
+
+        <form id="adminSettingsForm" style="margin-top:10px;display:grid;gap:10px">
+          <div>
+            <label for="adminSiteStatus">Site Durumu</label>
+            <select id="adminSiteStatus">
+              <option value="open">Açık</option>
+              <option value="maintenance">Bakım Modu</option>
+              <option value="closed">Kapalı</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="adminMinPassword">Minimum Şifre Uzunluğu</label>
+            <input id="adminMinPassword" type="number" min="4" max="32" value="8">
+          </div>
+
+          <div>
+            <label for="adminBannerText">Üst Banner Metni</label>
+            <input id="adminBannerText" type="text" placeholder="Örn: Final haftası boyunca destek saatleri uzatıldı.">
+          </div>
+
+          <div style="display:flex;align-items:center;gap:8px">
+            <input id="adminHolidayToggle" type="checkbox">
+            <label for="adminHolidayToggle" class="muted small">Varsayılan olarak kar efektini açık başlat</label>
+          </div>
+
+          <button type="submit" class="btn-primary btn-small" style="margin-top:6px">Kaydet</button>
+          <div id="adminSettingsStatus" class="muted small" style="margin-top:4px"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- LOGLAR -->
+    <section class="admin-section hidden" data-admin-section="logs">
+      <div class="card">
+        <h2>Sistem Logları</h2>
+        <p class="muted small">
+          Önemli admin hareketleri (demo kayıtları). Gerçek sistemde veritabanından çekilebilir.
+        </p>
+
+        <div id="adminLogList" style="margin-top:10px;display:flex;flex-direction:column;gap:6px">
+          <!-- js/app.js dolduracak -->
+        </div>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- SAĞ PANEL -->
+  <aside class="rightbar">
+    <div class="card">
+      <h3>Admin İpucu</h3>
+      <p class="muted small">
+        Ders listesini sık sık güncellersen, öğrenciler <strong>Programı Düzenle</strong> sayfasında
+        sadece güncel dersleri görür. Ortak boş saat hesapları da bu programlara göre yapılır.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Demo Bilgisi</h3>
+      <p class="muted small">
+        Bu paneldeki tüm işlemler <strong>localStorage</strong> üzerinde demo olarak çalışır.
+        Projede veritabanı ile desteklenebilir.
+      </p>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© 2025 UniConnect</span>
+    <span>
+      <a href="contact.html">İletişim</a> ·
+      <a href="media.html">Medya</a> ·
+      <a href="resources.html">Kaynaklar</a>
+    </span>
+  </div>
+</footer>
+
+<!-- Kar efekti layer -->
+<div id="holidayLayer" class="holiday-layer hidden" aria-hidden="true"></div>
+
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>UniConnect – Admin Kullanıcılar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="img/uniConnect.png">
+</head>
+<body class="theme-light" data-page="admin-users">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo" data-logo>
+      <img src="img/uniConnect.png" alt="Logo">
+      <span>UniConnect Admin</span>
+    </div>
+
+    <nav class="top-nav">
+      <a class="nav-link" href="admin-dashboard.html">Dashboard</a>
+      <a class="nav-link" href="admin-users.html">Kullanıcılar</a>
+      <a class="nav-link" href="admin-courses.html">Ders Kataloğu</a>
+      <a class="nav-link" href="dashboard.html">Öğrenci Modu</a>
+    </nav>
+
+    <div class="userbox">
+      <span id="currentUserEmail" class="user-email muted small"></span>
+      <button id="btnLogout" class="btn-small" type="button">Çıkış</button>
+    </div>
+  </div>
+</header>
+
+<main class="container layout">
+  <aside class="sidebar">
+    <div class="card">
+      <div class="side-title">Admin Menü</div>
+      <div class="side-nav">
+        <a class="side-link" href="admin-dashboard.html">Dashboard</a>
+        <a class="side-link" href="admin-users.html">Kullanıcılar</a>
+        <a class="side-link" href="admin-courses.html">Ders Kataloğu</a>
+      </div>
+    </div>
+  </aside>
+
+  <section>
+    <div class="card">
+      <h1>Kullanıcılar</h1>
+      <p class="muted">Sisteme giriş yapan kullanıcılar burada listelenir. “Programı Gör” ile modal açılır.</p>
+    </div>
+
+    <div class="card">
+      <h2>Liste</h2>
+      <div id="adminUserList" style="margin-top:12px;display:grid;gap:10px"></div>
+    </div>
+  </section>
+
+  <aside class="rightbar">
+    <div class="card">
+      <h3>İpucu</h3>
+      <p class="muted small">Önce öğrenciler giriş yapmalı ki listede görünsün.</p>
+    </div>
+  </aside>
+</main>
+
+<!-- Modal -->
+<div id="adminScheduleModal" class="modal hidden" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="adminScheduleTitle">
+    <div class="modal-head">
+      <strong id="adminScheduleTitle">Program</strong>
+      <button id="btnCloseAdminModal" class="modal-close" type="button" aria-label="Kapat">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="adminScheduleView"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© 2025 UniConnect Admin</span>
+    <span><a href="admin-dashboard.html">Dashboard</a> · <a href="admin-courses.html">Ders Kataloğu</a></span>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>UniConnect – Admin Ders Kataloğu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="img/uniConnect.png">
+</head>
+<body class="theme-light" data-page="admin-courses">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo" data-logo>
+      <img src="img/uniConnect.png" alt="Logo">
+      <span>UniConnect Admin</span>
+    </div>
+
+    <nav class="top-nav">
+      <a class="nav-link" href="admin-dashboard.html">Dashboard</a>
+      <a class="nav-link" href="admin-users.html">Kullanıcılar</a>
+      <a class="nav-link" href="admin-courses.html">Ders Kataloğu</a>
+      <a class="nav-link" href="dashboard.html">Öğrenci Modu</a>
+    </nav>
+
+    <div class="userbox">
+      <span id="currentUserEmail" class="user-email muted small"></span>
+      <button id="btnLogout" class="btn-small" type="button">Çıkış</button>
+    </div>
+  </div>
+</header>
+
+<main class="container layout">
+  <aside class="sidebar">
+    <div class="card">
+      <div class="side-title">Admin Menü</div>
+      <div class="side-nav">
+        <a class="side-link" href="admin-dashboard.html">Dashboard</a>
+        <a class="side-link" href="admin-users.html">Kullanıcılar</a>
+        <a class="side-link" href="admin-courses.html">Ders Kataloğu</a>
+      </div>
+    </div>
+  </aside>
+
+  <section>
+    <div class="card">
+      <h1>Ders Kataloğu</h1>
+      <p class="muted">Buradan ders ekle/sil. Öğrenciler schedule sayfasında bu dersleri seçer.</p>
+    </div>
+
+    <div class="card">
+      <h2>Ders Ekle</h2>
+      <form id="courseForm" style="margin-top:12px;display:grid;gap:10px">
+        <div class="form-row">
+          <div>
+            <label for="cCode">Ders Kodu</label>
+            <input id="cCode" type="text" placeholder="BİLP231">
+          </div>
+          <div>
+            <label for="cName">Ders Adı</label>
+            <input id="cName" type="text" placeholder="İnternet Programcılığı I">
+          </div>
+        </div>
+        <div>
+          <label for="cDept">Bölüm (opsiyonel)</label>
+          <input id="cDept" type="text" placeholder="Bilgisayar Programcılığı">
+        </div>
+        <button class="btn-primary" type="submit">Ekle</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Mevcut Dersler</h2>
+      <div id="courseList" style="margin-top:12px;display:grid;gap:10px"></div>
+    </div>
+  </section>
+
+  <aside class="rightbar">
+    <div class="card">
+      <h3>Not</h3>
+      <p class="muted small">Silme işlemi kalıcıdır (localStorage).</p>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© 2025 UniConnect Admin</span>
+    <span><a href="admin-dashboard.html">Dashboard</a> · <a href="admin-users.html">Kullanıcılar</a></span>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

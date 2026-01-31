@@ -1,0 +1,25 @@
+/* Minimal snow layer (safe) */
+
+.holiday-layer{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:3000;
+  overflow:hidden;
+}
+.holiday-layer.hidden{display:none!important}
+
+.snowflake{
+  position:absolute;
+  top:-20px;
+  width:8px;height:8px;
+  border-radius:999px;
+  background:rgba(255,255,255,0.85);
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25));
+  animation: snow-fall linear forwards;
+}
+
+@keyframes snow-fall{
+  from{ transform: translateY(0); opacity:0.9; }
+  to{ transform: translateY(110vh); opacity:0.1; }
+}

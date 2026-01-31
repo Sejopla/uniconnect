@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>UniConnect – Fotoğraflar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/holiday.css">
+  <link rel="icon" type="image/png" href="img/uniConnect.png">
+  <style>
+    .photo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+    .photo-item{
+      border:1px solid var(--border);
+      background:var(--card2);
+      border-radius:16px;
+      height:140px;
+      position:relative;overflow:hidden;
+    }
+    .photo-item::after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(135deg, rgba(37,99,235,0.18), rgba(148,163,184,0.08));
+    }
+  </style>
+</head>
+<body class="theme-light" data-page="photos">
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo" data-logo><img src="img/uniConnect.png" alt="Logo"><span>UniConnect</span></div>
+    <nav class="top-nav">
+      <a class="nav-link" href="photos.html">Fotoğraflar</a>
+      <a class="nav-link" href="media.html">Medya</a>
+      <a class="nav-link" href="friends.html">Arkadaşlar</a>
+      <a class="nav-link" href="dashboard.html">Dashboard</a>
+    </nav>
+    <div class="userbox">
+      <span id="currentUserEmail" class="user-email muted small"></span>
+      <button id="btnLogout" class="btn-small" type="button">Çıkış</button>
+    </div>
+  </div>
+</header>
+
+<main class="container layout">
+  <aside class="sidebar">
+    <div class="card">
+      <div class="side-title">Menü</div>
+      <div class="side-nav">
+        <a class="side-link" href="photos.html">Fotoğraflar</a>
+        <a class="side-link" href="media.html">Medya</a>
+        <a class="side-link" href="about.html">Hakkında</a>
+      </div>
+    </div>
+  </aside>
+
+  <section>
+    <div class="card">
+      <h1>Fotoğraflar</h1>
+      <p class="muted">Demo galeri görünümü.</p>
+    </div>
+
+    <div class="card">
+      <h2>Galeri</h2>
+      <div class="photo-grid" style="margin-top:12px">
+        <div class="photo-item"><img src="img/campus.jpg" alt=""></div><div class="photo-item"><img src="img/friends.png" alt=""></div><div class="photo-item"><img src="img/schedule.png" alt=""></div><div class="photo-item"><img src="img/uniConnect.png" alt=""></div>
+        <div class="photo-item"></div><div class="photo-item"></div><div class="photo-item"></div><div class="photo-item"></div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="rightbar">
+    <div class="card"><h3>Not</h3><p class="muted small">Kriter: içerik ve galeri düzeni.</p></div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© 2025 UniConnect</span>
+    <span><a href="contact.html">İletişim</a> · <a href="resources.html">Kaynaklar</a></span>
+  </div>
+</footer>
+
+<div id="holidayLayer" class="holiday-layer hidden" aria-hidden="true"></div>
+<script src="js/app.js"></script><script src="js/holiday.js"></script>
+</body>
+</html>

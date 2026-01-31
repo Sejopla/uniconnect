@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>UniConnect – Hakkında</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/holiday.css">
+  <link rel="icon" type="image/png" href="img/uniConnect.png">
+</head>
+<body class="theme-light" data-page="about">
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo" data-logo><img src="img/uniConnect.png" alt="Logo"><span>UniConnect</span></div>
+    <nav class="top-nav">
+      <a class="nav-link" href="dashboard.html">Ders Programım</a>
+      <a class="nav-link" href="about.html">Hakkında</a>
+      <a class="nav-link" href="contact.html">İletişim</a>
+      <a class="nav-link" href="media.html">Medya</a>
+      <a class="nav-link" href="resources.html">Kaynaklar</a>
+    </nav>
+    <div class="userbox">
+      <span id="currentUserEmail" class="user-email muted small"></span>
+      <button id="btnLogout" class="btn-small" type="button">Çıkış</button>
+    </div>
+  </div>
+</header>
+
+<main class="container layout">
+  <aside class="sidebar">
+    <div class="card">
+      <div class="side-title">Menü</div>
+      <div class="side-nav">
+        <a class="side-link" href="about.html">Hakkında</a>
+        <a class="side-link" href="contact.html">İletişim</a>
+        <a class="side-link" href="help.html">Yardım</a>
+        <a class="side-link" href="faq.html">SSS</a>
+      </div>
+    </div>
+  </aside>
+
+  <section>
+    <div class="card">
+      <h1>UniConnect Nedir?</h1>
+      <p class="muted">
+        UniConnect, öğrencilerin ders programını oluşturmasını, arkadaşlarıyla ortak boş saatleri bulmasını
+        ve kampüs içi mini sosyal ağ hissi veren sayfalarda gezinmesini amaçlayan demo projedir.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Özellikler</h2>
+      <ul class="muted" style="margin-top:10px;display:grid;gap:6px">
+        <li>Başkent mail ile giriş</li>
+        <li>Ders programı oluşturma</li>
+        <li>Admin panelden ders kataloğu</li>
+        <li>Arkadaşlar + ortak boş saat</li>
+        <li>Tema ve kar efekti</li>
+      </ul>
+    </div>
+  </section>
+
+  <aside class="rightbar">
+    <div class="card"><h3>Admin</h3><a href="admin-dashboard.html" style="color:var(--brand);font-weight:1000">Admin panel</a></div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© 2025 UniConnect</span>
+    <span><a href="contact.html">İletişim</a> · <a href="media.html">Medya</a> · <a href="resources.html">Kaynaklar</a></span>
+  </div>
+</footer>
+
+<div id="holidayLayer" class="holiday-layer hidden" aria-hidden="true"></div>
+<script src="js/app.js"></script><script src="js/holiday.js"></script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>UniConnect – Giriş</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/holiday.css">
+  <link rel="icon" type="image/png" href="img/uniConnect.png">
+</head>
+<body class="theme-light" data-page="login">
+
+<div class="login-wrap">
+  <div class="login-card">
+    <div class="logo" style="justify-content:center" data-logo>
+      <img src="img/uniConnect.png" alt="UniConnect Logo">
+      <span>UniConnect</span>
+    </div>
+
+    <h1 style="text-align:center;margin-top:10px">Başkent Mail ile Giriş</h1>
+    <p class="muted small" style="text-align:center">
+      Sadece <strong>@baskent.edu.tr</strong> ve <strong>@mail.baskent.edu.tr</strong> uzantıları kabul edilir.
+    </p>
+
+    <form id="loginForm" style="margin-top:12px;display:flex;flex-direction:column;gap:10px" novalidate>
+      <div>
+        <label for="email">E-posta</label>
+        <input id="email" type="email" placeholder="22394902@mail.baskent.edu.tr" required>
+      </div>
+      <div>
+        <label for="password">Şifre</label>
+        <input id="password" type="password" placeholder="Şifreni gir" required>
+      </div>
+      <button class="btn-primary" type="submit">Giriş Yap</button>
+    </form>
+
+    <div class="card" style="margin-top:14px;box-shadow:none">
+      <h3>Demo</h3>
+      <p class="muted small" style="margin:0">
+        Admin: <strong>admin@baskent.edu.tr</strong> / <strong>admin123</strong><br>
+        Öğrenci: Başkent mail yaz, şifre herhangi bir şey.
+      </p>
+    </div>
+
+    <p class="muted small" style="text-align:center;margin-top:10px">
+      <a href="about.html" style="color:var(--brand);font-weight:1000">Hakkında</a> ·
+      <a href="contact.html" style="color:var(--brand);font-weight:1000">İletişim</a> ·
+      <a href="resources.html" style="color:var(--brand);font-weight:1000">Kaynaklar</a>
+    </p>
+  </div>
+</div>
+
+<div id="holidayLayer" class="holiday-layer hidden" aria-hidden="true"></div>
+<script src="js/app.js"></script>
+<script src="js/holiday.js"></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>UniConnect – Medya</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/holiday.css">
+  <link rel="icon" type="image/png" href="img/uniConnect.png">
+</head>
+<body class="theme-light" data-page="media">
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo" data-logo><img src="img/uniConnect.png" alt="Logo"><span>UniConnect</span></div>
+    <nav class="top-nav">
+      <a class="nav-link" href="media.html">Medya</a>
+      <a class="nav-link" href="about.html">Hakkında</a>
+      <a class="nav-link" href="resources.html">Kaynaklar</a>
+      <a class="nav-link" href="contact.html">İletişim</a>
+    </nav>
+    <div class="userbox">
+      <span id="currentUserEmail" class="user-email muted small"></span>
+      <button id="btnLogout" class="btn-small" type="button">Çıkış</button>
+    </div>
+  </div>
+</header>
+
+<main class="container layout">
+  <aside class="sidebar">
+    <div class="card">
+      <div class="side-title">Menü</div>
+      <div class="side-nav">
+        <a class="side-link" href="media.html">Medya</a>
+        <a class="side-link" href="photos.html">Fotoğraflar</a>
+        <a class="side-link" href="about.html">Hakkında</a>
+      </div>
+    </div>
+  </aside>
+
+  <section>
+    
+
+    <div class="card">
+      <h2>Tanıtım Videosu</h2>
+      <p class="muted small">videos/intro.mp4 koyarsan oynar.</p>
+      <video controls style="margin-top:10px;width:100%;border-radius:14px;border:1px solid var(--border)">
+        <source src="videos/intro.mp4" type="video/mp4">
+        Tarayıcın video etiketini desteklemiyor.
+      </video>
+    </div>
+
+    <div class="card">
+      <h2>Görseller</h2>
+      <div style="display:grid;gap:10px;margin-top:10px">
+        <img src="img/campus.jpg" alt="Kampüs">
+        <img src="img/schedule.png" alt="Program">
+        <img src="img/friends.png" alt="Arkadaşlar">
+      </div>
+    </div>
+  </section>
+
+  <aside class="rightbar">
+    <div class="card"><h3>Not</h3><p class="muted small">Kriter: “destekleyici medya”.</p></div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© 2025 UniConnect</span>
+    <span><a href="contact.html">İletişim</a> · <a href="resources.html">Kaynaklar</a></span>
+  </div>
+</footer>
+
+<div id="holidayLayer" class="holiday-layer hidden" aria-hidden="true"></div>
+<script src="js/app.js"></script><script src="js/holiday.js"></script>
+</body>
+</html>

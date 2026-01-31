@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>UniConnect – Programı Düzenle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/holiday.css">
+  <link rel="icon" type="image/png" href="img/uniConnect.png">
+</head>
+<body class="theme-light" data-page="schedule">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo" data-logo>
+      <img src="img/uniConnect.png" alt="Logo">
+      <span>UniConnect</span>
+    </div>
+
+    <nav class="top-nav">
+      <a class="nav-link" href="dashboard.html">Ders Programım</a>
+      <a class="nav-link" href="schedule.html">Programı Düzenle</a>
+      <a class="nav-link" href="friends.html">Arkadaşlar</a>
+      <a class="nav-link" href="shared.html">Ortak Boş Saat</a>
+      <a class="nav-link" href="profile.html">Profil</a>
+      <a class="nav-link" href="settings.html">Ayarlar</a>
+    </nav>
+
+    <div class="userbox">
+      <span id="currentUserEmail" class="user-email muted small"></span>
+      <button id="btnLogout" class="btn-small" type="button">Çıkış</button>
+    </div>
+  </div>
+</header>
+
+<main class="container layout">
+  <aside class="sidebar">
+    <div class="card">
+      <div class="side-title">Menü</div>
+      <div class="side-nav">
+        <a class="side-link" href="dashboard.html">Ana Sayfa</a>
+        <a class="side-link" href="schedule.html">Programı Düzenle</a>
+        <a class="side-link" href="friends.html">Arkadaşlar</a>
+        <a class="side-link" href="shared.html">Ortak Boş Saat</a>
+        <a class="side-link" href="resources.html">Dış Linkler</a>
+      </div>
+    </div>
+  </aside>
+
+  <section>
+    <div class="card">
+      <h1>Programı Düzenle</h1>
+      <p class="muted">
+        Hücreye tıkla → ders seç. Boş seçim yaparsan siler.
+        Değişiklikler tarayıcıda <strong>localStorage</strong> ile saklanır.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Haftalık Program</h2>
+      <p class="muted small">09:00–17:00, Pazartesi–Cuma</p>
+      <div id="scheduleGrid" style="margin-top:12px"></div>
+
+      <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <button id="btnSaveSchedule" class="btn-primary" type="button">Programı Kaydet</button>
+        <a class="btn-outline" href="dashboard.html">Dashboard’a Dön</a>
+      </div>
+    </div>
+  </section>
+
+  <aside class="rightbar">
+    <div class="card">
+      <h3>İpucu</h3>
+      <p class="muted small">
+        Ders listesi admin panelden eklenir. Burada seçerek programını doldurursun.
+      </p>
+    </div>
+  </aside>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© 2025 UniConnect</span>
+    <span><a href="contact.html">İletişim</a> · <a href="media.html">Medya</a> · <a href="resources.html">Kaynaklar</a></span>
+  </div>
+</footer>
+
+<div id="holidayLayer" class="holiday-layer hidden" aria-hidden="true"></div>
+<script src="js/app.js"></script>
+<script src="js/holiday.js"></script>
+</body>
+</html>
